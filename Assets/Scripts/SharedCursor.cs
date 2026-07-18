@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 public class SharedCursor : NetworkBehaviour
 {
     [SerializeField] private InputActionReference _pointAction;
+    [SerializeField] private Collider handCollider;
+
     private Camera _cam;
 
     public override void OnNetworkSpawn()
@@ -13,7 +15,7 @@ public class SharedCursor : NetworkBehaviour
         {
             _cam = Camera.main;
             _pointAction.action.Enable();
-            GetComponent<Collider>().enabled = false;
+            handCollider.enabled = false;
         }
     }
 
