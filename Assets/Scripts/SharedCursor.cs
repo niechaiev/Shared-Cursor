@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 public class SharedCursor : NetworkBehaviour
 {
     [SerializeField] private InputActionReference _pointAction;
-    [SerializeField] private Collider handCollider;
 
     private Camera _cam;
 
@@ -15,7 +14,6 @@ public class SharedCursor : NetworkBehaviour
         {
             _cam = Camera.main;
             _pointAction.action.Enable();
-            handCollider.enabled = false;
         }
     }
 
@@ -36,7 +34,7 @@ public class SharedCursor : NetworkBehaviour
 
             var ray = _cam.ScreenPointToRay(screenPos);
 
-            if (Physics.Raycast(ray, out var hit))
+            if (Physics.Raycast(ray, out var hit, 10f, 1 << 0))
                 gameObject.transform.position = hit.point;
         }
     }
