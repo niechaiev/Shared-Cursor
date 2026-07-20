@@ -759,9 +759,9 @@ MonoBehaviour:
   SyncRotAngleX: 1
   SyncRotAngleY: 1
   SyncRotAngleZ: 1
-  SyncScaleX: 1
-  SyncScaleY: 1
-  SyncScaleZ: 1
+  SyncScaleX: 0
+  SyncScaleY: 0
+  SyncScaleZ: 0
   PositionThreshold: 0.001
   RotAngleThreshold: 0.01
   ScaleThreshold: 0.01
@@ -991,31 +991,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c89db274ab621f345b941b10e568f700, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.596
+      value: -0.622
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c89db274ab621f345b941b10e568f700, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.689
+      value: -0.68
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c89db274ab621f345b941b10e568f700, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.199
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c89db274ab621f345b941b10e568f700, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.6963643
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c89db274ab621f345b941b10e568f700, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.6963643
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c89db274ab621f345b941b10e568f700, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.12278779
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c89db274ab621f345b941b10e568f700, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.12278779
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c89db274ab621f345b941b10e568f700, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1027,11 +1027,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c89db274ab621f345b941b10e568f700, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 20
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c89db274ab621f345b941b10e568f700, type: 3}
       propertyPath: m_ConstrainProportionsScale
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7556315166630928386, guid: c89db274ab621f345b941b10e568f700, type: 3}
       propertyPath: m_Layer
@@ -1406,8 +1406,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   ShowTopMostFoldoutHeaderGroup: 1
-  _emoteAction: {fileID: 3193523072166074337, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   animator: {fileID: 3475469314543609239}
+  secondHand: {fileID: 4626954211036318623}
 --- !u!114 &4136542437352965154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1424,13 +1424,40 @@ MonoBehaviour:
   NetworkAnimatorExpanded: 0
   AuthorityMode: 1
   m_Animator: {fileID: 3475469314543609239}
-  TransitionStateInfoList: []
+  TransitionStateInfoList:
+  - IsCrossFadeExit: 0
+    Layer: 0
+    OriginatingState: -50635001
+    DestinationState: 2081823275
+    TransitionDuration: 0.25
+    TriggerNameHash: 2081823275
+    TransitionIndex: 0
+  - IsCrossFadeExit: 0
+    Layer: 0
+    OriginatingState: -206889714
+    DestinationState: 2081823275
+    TransitionDuration: 0.25
+    TriggerNameHash: 2081823275
+    TransitionIndex: 0
   AnimatorParameterEntries:
-    ParameterEntries: []
+    ParameterEntries:
+    - name: PlayEmote
+      NameHash: 2125244075
+      Synchronize: 1
+      ParameterType: 3
+    - name: Idle
+      NameHash: 2081823275
+      Synchronize: 1
+      ParameterType: 9
   AnimatorParametersExpanded: 0
 --- !u!4 &4569733794008624228 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c89db274ab621f345b941b10e568f700, type: 3}
+  m_PrefabInstance: {fileID: 4098361224897891215}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4626954211036318623 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -516098083770646512, guid: c89db274ab621f345b941b10e568f700, type: 3}
   m_PrefabInstance: {fileID: 4098361224897891215}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &5354849229715162363 stripped

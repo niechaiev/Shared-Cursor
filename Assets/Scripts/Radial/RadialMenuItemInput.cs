@@ -36,12 +36,14 @@ namespace Radial
         {
             _targetScale = _baseScale * _radialMenu.HoverScale;
             if (_backgroundImage) _backgroundImage.color = _radialMenu.HoverColor;
+            _radialMenu.OnSelect = _radialMenuItem.Invoke;
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
             _targetScale = _baseScale;
             if (_backgroundImage) _backgroundImage.color = _radialMenu.DefaultColor;
+            _radialMenu.OnSelect = null;
         }
 
         public void OnPointerClick(PointerEventData eventData)

@@ -11,5 +11,6 @@ public class EmoteSO : ScriptableObject
     {
         public string title;
         public bool isTwoHanded;
+        public AnimationClip clip;
     }
 }

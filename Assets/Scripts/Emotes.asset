@@ -15,5 +15,16 @@ MonoBehaviour:
   emotes:
   - title: FU
     isTwoHanded: 0
+    clip: {fileID: -9109908096110007678, guid: c89db274ab621f345b941b10e568f700, type: 3}
   - title: Clap Vertical
     isTwoHanded: 1
+    clip: {fileID: -1056671642141556224, guid: c89db274ab621f345b941b10e568f700, type: 3}
+  - title: Clap Horizontal
+    isTwoHanded: 1
+    clip: {fileID: 8213012484795163969, guid: c89db274ab621f345b941b10e568f700, type: 3}
+  - title: 76
+    isTwoHanded: 1
+    clip: {fileID: 8503873844237735800, guid: c89db274ab621f345b941b10e568f700, type: 3}
+  - title: Hamburger
+    isTwoHanded: 0
+    clip: {fileID: 5535851589677311372, guid: c89db274ab621f345b941b10e568f700, type: 3}

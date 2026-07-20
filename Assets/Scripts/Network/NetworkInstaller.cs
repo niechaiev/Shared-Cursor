@@ -1,5 +1,4 @@
-﻿
-using Network.Zenject;
+﻿using Network.Zenject;
 using Unity.Netcode;
 using UnityEngine;
 using Zenject;

@@ -7,6 +7,7 @@ public class SharedCursor : NetworkBehaviour
     [SerializeField] private InputActionReference _pointAction;
 
     private Camera _cam;
+    private Quaternion _targetRotation;
 
     public override void OnNetworkSpawn()
     {
@@ -14,6 +15,19 @@ public class SharedCursor : NetworkBehaviour
         {
             _cam = Camera.main;
             _pointAction.action.Enable();
+        }
+        else
+        {
+            SetLayerRecursively(transform.GetChild(0), 0);
+        }
+    }
+
+    private static void SetLayerRecursively(Transform t, int layer)
+    {
+        t.gameObject.layer = layer;
+        foreach (Transform child in t)
+        {
+            SetLayerRecursively(child, layer);
         }
     }
 
@@ -35,7 +49,11 @@ public class SharedCursor : NetworkBehaviour
             var ray = _cam.ScreenPointToRay(screenPos);
 
             if (Physics.Raycast(ray, out var hit, 10f, 1 << 0))
+            {
                 gameObject.transform.position = hit.point;
+                _targetRotation = Quaternion.LookRotation(-hit.normal);
+                gameObject.transform.rotation = Quaternion.Slerp(gameObject.transform.rotation, _targetRotation, Time.deltaTime * 5f);
+            }
         }
     }
 }

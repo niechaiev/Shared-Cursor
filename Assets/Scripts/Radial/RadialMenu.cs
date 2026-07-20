@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -20,7 +21,6 @@ namespace Radial
         [SerializeField] private float hoverScale = 1.15f;
 
         [Header("Open & Close")]
-        [SerializeField] private bool startOpen = true;
         [SerializeField] private float openCloseDuration = 0.2f;
         [SerializeField] private AnimationCurve openCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
         [SerializeField] private GameObject radialMenuObj;
@@ -28,6 +28,9 @@ namespace Radial
 
         [Header("Data")]
         [SerializeField] private EmoteSO emoteSo;
+
+        //[Header("Selected")]
+        public Action OnSelect;
 
         private CanvasGroup _canvasGroup;
         private Coroutine _openCloseCoroutine;
@@ -47,27 +50,26 @@ namespace Radial
                 var emote = emoteSo.emotes[i];
                 var item = Instantiate(radialMenuItemPrefab, transform);
                 var i1 = i;
-                item.Setup(emote, () => emotePlayer.PlayEmote(i1));
+                item.Setup(emote, () => StartCoroutine(emotePlayer.PlayEmote(emote.clip, emote.isTwoHanded)));
                 _items.Add(item);
             }
 
             _canvasGroup = GetComponent<CanvasGroup>();
             if(!_canvasGroup) _canvasGroup = gameObject.AddComponent<CanvasGroup>();
 
-            if (startOpen)
-                Open(true);
-            else
-                Close(true);
+            Close();
         }
 
         private void OnEnable()
         {
-            emoteAction.action.performed += Toggle;
+            emoteAction.action.performed += Open;
+            emoteAction.action.canceled += SelectAndClose;
         }
 
         private void OnDisable()
         {
-            emoteAction.action.performed -= Toggle;
+            emoteAction.action.performed -= Open;
+            emoteAction.action.canceled -= SelectAndClose;
         }
 
         private void Update()
@@ -121,46 +123,36 @@ namespace Radial
             SetVisualState(to);
         }
 
-        private void StartOpenClose(bool instant, float from, float to)
+        private void StartOpenClose(float from, float to)
         {
             if (_openCloseCoroutine != null)
             {
                 StopCoroutine(_openCloseCoroutine);
             }
 
-            if (instant)
-            {
-                SetVisualState(to);
-                return;
-            }
-
             _openCloseCoroutine = StartCoroutine(OpenCloseCoroutine(from, to));
         }
 
-        public void Open(bool instant = false)
+        private void Open(InputAction.CallbackContext _)
         {
-            if (IsOpen) return;
-
             IsOpen = true;
             SetInteractable(true);
 
-            StartOpenClose(instant, 0f, 1f);
+            StartOpenClose(0f, 1f);
         }
 
-        public void Close(bool instant = false)
+        private void SelectAndClose(InputAction.CallbackContext _)
         {
-            if (!IsOpen) return;
+            OnSelect?.Invoke();
+            Close();
+        }
 
+        private void Close()
+        {
             IsOpen = false;
             SetInteractable(false);
 
-            StartOpenClose(instant, 1f, 0f);
-        }
-
-        private void Toggle(InputAction.CallbackContext _)
-        {
-            if (IsOpen) Close();
-            else Open();
+            StartOpenClose(1f, 0f);
         }
     }
 }
