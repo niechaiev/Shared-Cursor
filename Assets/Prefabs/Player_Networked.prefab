@@ -1121,9 +1121,17 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: -1526964690268444965, guid: c89db274ab621f345b941b10e568f700, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -1319537043635105898, guid: c89db274ab621f345b941b10e568f700, type: 3}
       propertyPath: m_Layer
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -1028401375704162923, guid: c89db274ab621f345b941b10e568f700, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -959140477688066188, guid: c89db274ab621f345b941b10e568f700, type: 3}
       propertyPath: m_Layer
@@ -1427,16 +1435,16 @@ MonoBehaviour:
   TransitionStateInfoList:
   - IsCrossFadeExit: 0
     Layer: 0
-    OriginatingState: -50635001
-    DestinationState: 2081823275
+    OriginatingState: 2081823275
+    DestinationState: -1434604862
     TransitionDuration: 0.25
-    TriggerNameHash: 2081823275
+    TriggerNameHash: 2125244075
     TransitionIndex: 0
   - IsCrossFadeExit: 0
     Layer: 0
-    OriginatingState: -206889714
+    OriginatingState: -1434604862
     DestinationState: 2081823275
-    TransitionDuration: 0.25
+    TransitionDuration: 0
     TriggerNameHash: 2081823275
     TransitionIndex: 0
   AnimatorParameterEntries:
@@ -1444,7 +1452,7 @@ MonoBehaviour:
     - name: PlayEmote
       NameHash: 2125244075
       Synchronize: 1
-      ParameterType: 3
+      ParameterType: 9
     - name: Idle
       NameHash: 2081823275
       Synchronize: 1

@@ -29,6 +29,8 @@ namespace Radial
         [Header("Data")]
         [SerializeField] private EmoteSO emoteSo;
 
+        public EmoteSO.Emote[] Emotes => emoteSo.emotes;
+
         //[Header("Selected")]
         public Action OnSelect;
 
@@ -45,12 +47,12 @@ namespace Radial
         private void Awake()
         {
             if (!emoteSo) return;
-            for (var i = 0; i < emoteSo.emotes.Length; i++)
+            for (var i = 0; i < Emotes.Length; i++)
             {
-                var emote = emoteSo.emotes[i];
+                var emote = Emotes[i];
                 var item = Instantiate(radialMenuItemPrefab, transform);
                 var i1 = i;
-                item.Setup(emote, () => StartCoroutine(emotePlayer.PlayEmote(emote.clip, emote.isTwoHanded)));
+                item.Setup(emote, () => StartCoroutine(emotePlayer.PlayEmote(i1)));
                 _items.Add(item);
             }
 

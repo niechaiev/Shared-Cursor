@@ -6,6 +6,7 @@ using Zenject;
 
 public class EmotePlayer : NetworkBehaviour
 {
+    private const string DefaultClipName = "SK_ElKemikleri|SK_arıfelayık";
     private static readonly int _idleEmote = Animator.StringToHash("Idle");
     private static readonly int _playEmote = Animator.StringToHash("PlayEmote");
     [SerializeField] private Animator animator;
@@ -13,30 +14,32 @@ public class EmotePlayer : NetworkBehaviour
 
     private RadialMenu _radialMenu;
     private AnimatorOverrideController _overrideController;
+    private readonly NetworkVariable<int> _currentEmoteIndex = new(-1);
 
     [Inject]
     public void Construct(RadialMenu radialMenu)
     {
-        Debug.Log("EmotePlayer Construct");
         _radialMenu = radialMenu;
+
         _overrideController = new AnimatorOverrideController(animator.runtimeAnimatorController);
+        animator.runtimeAnimatorController = _overrideController;
+        _currentEmoteIndex.OnValueChanged -= OnEmoteChanged;
+        _currentEmoteIndex.OnValueChanged += OnEmoteChanged;
     }
 
-    public IEnumerator PlayEmote(AnimationClip animationClip, bool isTwoHanded)
+    public IEnumerator PlayEmote(int index)
     {
         animator.SetTrigger(_idleEmote);
-        OnIdle();
+        SetEmote(-1);
 
         yield return null;
 
-        animator.runtimeAnimatorController = _overrideController;
-        _overrideController["SK_ElKemikleri|SK_arıfelayık"] = animationClip ;
-
+        SetEmote(index);
         animator.ResetTrigger(_idleEmote);
         animator.SetTrigger(_playEmote);
-        secondHand.SetActive(isTwoHanded);
 
         yield return null;
+
         animator.ResetTrigger(_playEmote);
     }
 
@@ -46,8 +49,25 @@ public class EmotePlayer : NetworkBehaviour
         _radialMenu.emotePlayer = this;
     }
 
-    public void OnIdle()
+    public void SetEmote(int index)
     {
-        secondHand.SetActive(false);
+        if (IsOwner) SetEmoteServerRpc(index);
+    }
+
+    [ServerRpc]
+    private void SetEmoteServerRpc(int index)
+    {
+        _currentEmoteIndex.Value = index;
+    }
+
+    private void OnEmoteChanged(int oldIndex, int newIndex)
+    {
+        if (newIndex == -1)
+        {
+            secondHand.SetActive(false);
+            return;
+        }
+        _overrideController[DefaultClipName] = _radialMenu.Emotes[newIndex].clip;
+        secondHand.SetActive(_radialMenu.Emotes[newIndex].isTwoHanded);
     }
 }
