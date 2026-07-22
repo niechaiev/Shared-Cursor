@@ -1,3 +1,4 @@
+using NGO;
 using UnityEngine;
 
 public class StateEnteredBehaviour : StateMachineBehaviour
