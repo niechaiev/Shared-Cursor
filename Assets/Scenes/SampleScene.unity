@@ -475,6 +475,7 @@ MonoBehaviour:
   _scriptableObjectInstallers: []
   _monoInstallers:
   - {fileID: 490727091}
+  - {fileID: 490727092}
   - {fileID: 490727093}
   _installerPrefabs: []
   _autoRun: 1
@@ -1553,7 +1554,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1603850577
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -47,7 +47,7 @@ namespace PhotonFusion
             if (HasStateAuthority)
             {
                 var screenPos = pointAction.action.ReadValue<Vector2>();
-                if (screenPos == Vector2.zero) return;
+                if (screenPos == Vector2.zero || float.IsNaN(screenPos.x)) return;
 
                 var ray = _cam.ScreenPointToRay(screenPos);
 
