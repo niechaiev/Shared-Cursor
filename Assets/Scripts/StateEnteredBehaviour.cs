@@ -1,4 +1,4 @@
-using NGO;
+using PhotonFusion;
 using UnityEngine;
 
 public class StateEnteredBehaviour : StateMachineBehaviour

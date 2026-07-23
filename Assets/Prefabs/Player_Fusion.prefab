@@ -64,6 +64,7 @@ PrefabInstance:
     - {fileID: 4136542437352965154, guid: 18fe6fcc8bf0ed8459ba4c3f1e70215b, type: 3}
     - {fileID: 5473242664766513836, guid: 18fe6fcc8bf0ed8459ba4c3f1e70215b, type: 3}
     - {fileID: 1845444271397865787, guid: 18fe6fcc8bf0ed8459ba4c3f1e70215b, type: 3}
+    - {fileID: 5012048981525164530, guid: 18fe6fcc8bf0ed8459ba4c3f1e70215b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -85,6 +86,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7649314492356420980, guid: 18fe6fcc8bf0ed8459ba4c3f1e70215b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5400895774714479989}
+    - targetCorrespondingSourceObject: {fileID: 3756323146878891742, guid: 18fe6fcc8bf0ed8459ba4c3f1e70215b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6550665686710624665}
+    - targetCorrespondingSourceObject: {fileID: 3756323146878891742, guid: 18fe6fcc8bf0ed8459ba4c3f1e70215b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4178092316179149699}
   m_SourcePrefab: {fileID: 100100000, guid: 18fe6fcc8bf0ed8459ba4c3f1e70215b, type: 3}
 --- !u!65 &267899274052335276 stripped
 BoxCollider:
@@ -94,6 +101,53 @@ BoxCollider:
 --- !u!23 &2224968276496463272 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 1353257813360788249, guid: 18fe6fcc8bf0ed8459ba4c3f1e70215b, type: 3}
+  m_PrefabInstance: {fileID: 875686332174825137}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4036971377909743727 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3756323146878891742, guid: 18fe6fcc8bf0ed8459ba4c3f1e70215b, type: 3}
+  m_PrefabInstance: {fileID: 875686332174825137}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6550665686710624665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4036971377909743727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9c6d44ee18142498992bbf3198fecfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PhotonFusion.EmotePlayer
+  animator: {fileID: 4331417179579061030}
+  secondHand: {fileID: 5481213087977618734}
+--- !u!114 &4178092316179149699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4036971377909743727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 506319458, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Fusion.Runtime.dll::Fusion.NetworkMecanimAnimator
+  Animator: {fileID: 4331417179579061030}
+  ApplyTiming: 2
+  SyncSettings: 127
+  StateHashes: 000000002b1a167c79406955c2aa7daa40e5312f
+  TriggerHashes: 000000002b1a167caba6ac7e
+  TotalWords: 3
+--- !u!95 &4331417179579061030 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3475469314543609239, guid: 18fe6fcc8bf0ed8459ba4c3f1e70215b, type: 3}
+  m_PrefabInstance: {fileID: 875686332174825137}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5481213087977618734 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4626954211036318623, guid: 18fe6fcc8bf0ed8459ba4c3f1e70215b, type: 3}
   m_PrefabInstance: {fileID: 875686332174825137}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &5612910207925555775 stripped
@@ -142,6 +196,8 @@ MonoBehaviour:
   - {fileID: 8537546856558787129}
   - {fileID: 3585902715736293357}
   - {fileID: 5400895774714479989}
+  - {fileID: 6550665686710624665}
+  - {fileID: 4178092316179149699}
   ForceRemoteRenderTimeframe: 0
 --- !u!114 &4164655280673091335
 MonoBehaviour:

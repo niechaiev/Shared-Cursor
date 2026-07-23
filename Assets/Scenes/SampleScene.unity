@@ -452,6 +452,7 @@ GameObject:
   - component: {fileID: 490727089}
   - component: {fileID: 490727091}
   - component: {fileID: 490727092}
+  - component: {fileID: 490727093}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -474,6 +475,7 @@ MonoBehaviour:
   _scriptableObjectInstallers: []
   _monoInstallers:
   - {fileID: 490727091}
+  - {fileID: 490727093}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -534,6 +536,18 @@ MonoBehaviour:
   networkManager: {fileID: 1603850578}
   networkPrefabsLists:
   - {fileID: 11400000, guid: ee719fa644779cc4d929284fbe5ab0f1, type: 2}
+--- !u!114 &490727093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490727088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2692cc37e5f848259ce492b0c24b8412, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PhotonFusion.Zenject.FusionNetworkInstaller
 --- !u!1 &607550197
 GameObject:
   m_ObjectHideFlags: 0
@@ -1903,6 +1917,7 @@ GameObject:
   - component: {fileID: 2112158360}
   - component: {fileID: 2112158359}
   - component: {fileID: 2112158362}
+  - component: {fileID: 2112158363}
   m_Layer: 0
   m_Name: Prototype Runner
   m_TagString: Untagged
@@ -2016,6 +2031,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   PlayerPrefab: {fileID: 5612910207925555775, guid: eccc68b735a9858498979f7012867d78, type: 3}
+--- !u!114 &2112158363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112158358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ca61ad401d94336a30163969478a897, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PhotonFusion.Zenject.ZenjectNetworkObjectProvider
+  DelayIfSceneManagerIsBusy: 1
 --- !u!114 &1623879949627184362 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2711446774051090105, guid: 7538faf0621451445a341298654f0871, type: 3}
